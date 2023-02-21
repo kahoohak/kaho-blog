@@ -1,11 +1,9 @@
 <script setup lang="ts">
-
+    
 </script>
 
 <template>
-  <div>blog index</div>
+    <router-view />
 </template>
 
-<style scoped>
-
-</style>
+<style lang="scss" scoped></style>
