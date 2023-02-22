@@ -5,6 +5,7 @@ import Layout from "@/layout/index.vue";
 import TransitionFade from "@/components/transitions/fade.vue"
 
 const router = useRouter();
+//当前页是否需要layout
 const hasLayout = ref(false);
 
 router.beforeEach((to, from, next) => {
