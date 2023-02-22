@@ -11,9 +11,9 @@ router.beforeResolve((to, from, next) => {
     next();
 });
 
-// const handleSelect = (key: string, keyPath: string[]) => {
-//     console.log(key, keyPath);
-// };
+const handleSelect = (key: string, keyPath: string[]) => {
+    // console.log(key, keyPath);
+};
 </script>
 
 <template>
