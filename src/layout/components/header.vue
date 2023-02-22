@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { ref, onBeforeMount } from "vue";
+import { ref } from "vue";
 import { useRouter } from "vue-router";
 
 const activeIndex = ref("");

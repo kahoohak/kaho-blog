@@ -1,5 +1,9 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import Person from "@/components/three/person.vue"
+</script>
 
-<template><div>this is home</div></template>
+<template>
+    <Person />
+</template>
 
 <style lang="scss" scoped></style>

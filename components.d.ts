@@ -19,6 +19,7 @@ declare module '@vue/runtime-core' {
     ElSubMenu: typeof import('element-plus/es')['ElSubMenu']
     Fade: typeof import('./src/components/transitions/fade.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
+    Person: typeof import('./src/components/three/person.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }
