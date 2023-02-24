@@ -1,5 +1,5 @@
 <script setup lang="ts"></script>
 
-<template><div>this is demo</div></template>
+<template><div>demo list</div></template>
 
 <style lang="scss" scoped></style>

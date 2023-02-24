@@ -7,7 +7,7 @@ const activeIndex = ref("");
 const router = useRouter();
 
 router.beforeResolve((to, from, next) => {
-    activeIndex.value = to.path;
+    activeIndex.value = to.path.includes('demo') ? '/demo' : to.path;
     next();
 });
 

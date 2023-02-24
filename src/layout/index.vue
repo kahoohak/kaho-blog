@@ -7,7 +7,7 @@ import Footer from "./components/footer.vue";
 <template>
     <el-container>
         <el-header class="header"> <Header /></el-header>
-        <el-main class="main"><slot>Main</slot></el-main>
+        <el-main class="main"><slot></slot></el-main>
         <el-footer class="footer"><Footer /></el-footer>
     </el-container>
 </template>

@@ -2,35 +2,57 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
-import { onMounted } from "vue";
+import { onMounted, onUnmounted, ref } from "vue";
 
-// const scene = new THREE.Scene();
+//模型是否渲染完毕
 
-// const loader = new GLTFLoader();
-
-// loader.load(
-//     "/model-with-animations.glb",
-//     (gltf) => {
-//         scene.add(gltf.scene);
-//     },
-//     undefined,
-//     undefined
-// );
 
 const glbViewer = (id: string) => {
     let elem = document.getElementById(id) as HTMLElement;
-    console.log(elem)
-    let camera = new THREE.PerspectiveCamera(70, elem.clientWidth / elem.clientHeight, 1, 1000);
 
-    let renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, elem.clientWidth / elem.clientHeight, 0.1, 1000);
+
+    scene.background = new THREE.Color(0xffffff)
+    camera.position.z = 3;
+
+    const renderer = new THREE.WebGLRenderer();
     renderer.setSize(elem.clientWidth, elem.clientHeight);
 
-    renderer.setPixelRatio(window.devicePixelRatio);
-    renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    renderer.toneMappingExposure = 1;
-    renderer.outputEncoding = THREE.sRGBEncoding;
-
     elem.appendChild(renderer.domElement);
+
+    const light = new THREE.AmbientLight(0xffffff); // soft white light
+    scene.add(light);
+
+    const loader = new GLTFLoader();
+
+    loader.load(
+        "/model-with-animations.glb",
+        function (gltf) {
+            scene.add(gltf.scene);
+
+            const mixer = new THREE.AnimationMixer(gltf.scene);
+            const animation = mixer.clipAction(gltf.animations[0]);
+            animation.play();
+
+            const clock = new THREE.Clock();
+            // 渲染
+            function render() {
+                const time = clock.getDelta();
+                if (mixer) {
+                    mixer.update(time);
+                }
+
+                renderer.render(scene, camera);
+                requestAnimationFrame(render);
+            }
+            render();
+        },
+        undefined,
+        function (error) {
+            console.error(error);
+        }
+    );
 
     window.addEventListener(
         "resize",
@@ -41,28 +63,20 @@ const glbViewer = (id: string) => {
         },
         false
     );
-
-    var scene = new THREE.Scene();
-
-    scene.background = new THREE.Color(0xffffff);
-
-    // const loader = new THREE.GLTFLoader().setPath("assets/models/"); //根据你放的模型或者图片的位置决定是否要使用setPath
-    const loader = new GLTFLoader();
-    loader.load("/model-with-animations.glb", function (gltf) {
-        camera.position.set(4, 0.3, -1.2);
-        gltf.scene.position.y = -1.8;
-        scene.add(gltf.scene);
-    });
 };
 
 onMounted(() => {
-    console.log('onMounted')
-    glbViewer('container')
-})
+    glbViewer("container");
+});
 </script>
 
 <template>
-    <div id="container" style="width: 600px;height: 600px;"></div>
+    <div id="container"></div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+#container {
+    width: 100%;
+    height: calc(100vh - 60px);
+}
+</style>

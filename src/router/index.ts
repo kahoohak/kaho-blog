@@ -21,6 +21,11 @@ const routes = [
         meta: { layout: true },
     },
     {
+        path: "/demo-three-person",
+        component: () => import("@/views/demo/three/person.vue"),
+        meta: { layout: true },
+    },
+    {
         path: "/aboutMe",
         component: () => import("@/views/aboutMe/index.vue"),
         meta: { layout: true },
