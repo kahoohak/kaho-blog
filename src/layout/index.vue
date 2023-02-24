@@ -6,7 +6,13 @@ import Footer from "./components/footer.vue";
 
 <template>
     <el-container>
-        <el-header class="header"> <Header /></el-header>
+        <el-header class="header">
+            <el-row justify="center">
+                <el-col :md="20" :lg="16">
+                    <Header />
+                </el-col>
+            </el-row>
+        </el-header>
         <el-main class="main"><slot></slot></el-main>
         <el-footer class="footer"><Footer /></el-footer>
     </el-container>
