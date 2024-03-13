@@ -2,7 +2,7 @@ import { defineConfig } from "vitepress";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  base: '/repo/',
+  base: '/kaho-blog/',
   title: "小赵自律日记",
   description: "记录自己的生活点滴",
   themeConfig: {
