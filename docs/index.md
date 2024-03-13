@@ -3,8 +3,8 @@
 layout: home
 
 hero:
-  name: "与其感慨路难行"
-  text: "不如马上出发"
+  name: "小赵自律日记"
+  text: "与其感慨路难行           不如马上出发"
   tagline: 保持学习，热爱健身，追寻自由，记录自己的生活点滴
   actions:
     - theme: brand
