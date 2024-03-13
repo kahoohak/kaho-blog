@@ -9,10 +9,10 @@ hero:
   actions:
     - theme: brand
       text: 开始学习
-      link: /markdown-examples
+      link: /study/
     - theme: alt
       text: 我的作品
-      link: /api-examples
+      link: /projects/
 
 features:
   - title: 学习

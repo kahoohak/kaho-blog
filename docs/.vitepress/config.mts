@@ -20,8 +20,8 @@ export default defineConfig({
         ],
       },
       { text: "作品", link: "/projects/" },
-      { text: "健身", link: "/fitness/" },
-      { text: "旅行", link: "/travel/" },
+      // { text: "健身", link: "/fitness/" },
+      // { text: "旅行", link: "/travel/" },
       { text: "简历", link: "/vitae/" },
     ],
 
@@ -30,11 +30,16 @@ export default defineConfig({
         {
           text: "Vue3源码解析",
           collapsed: true,
-          items: [{ text: "解析第一节", link: "/study/vue/vue3-sourceCode-parsing/" }],
+          items: [{ text: "响应式原理", link: "/study/vue/vue3-sourceCode-parsing/响应式原理" }],
         },
       ],
     },
 
     socialLinks: [{ icon: "github", link: "https://github.com/kahoohak" }],
+
+    outline: {
+      level: [1, 6],
+      label: '页面大纲'
+    }
   },
 });
